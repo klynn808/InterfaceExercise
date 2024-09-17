@@ -24,7 +24,8 @@ namespace InterfaceExercise
 
         public void ChangeGears(bool isChanged)
         {
-            throw new NotImplementedException();
+            HasChangedGears = isChanged;
+            Console.WriteLine($"{GetType().Name} gear has changed.");
         }
 
         public void Drive()
@@ -34,12 +35,31 @@ namespace InterfaceExercise
 
         public void Park()
         {
-            throw new NotImplementedException();
+            if (HasChangedGears == true)
+            {
+                if (HasChangedGears == true)
+                {
+                    Console.WriteLine($"{GetType().Name} is now parked");
+                    HasChangedGears = false;
+                }
+                else
+                {
+                    Console.WriteLine($"{GetType().Name} can't park, haven't changed gears yet.");
+                }
+            }
         }
 
         public void Reverse()
         {
-            throw new NotImplementedException();
+            string message = HasChangedGears
+                ? $"{GetType().Name} is now reversing"
+                : "Can't reverse, still in drive";
+            Console.WriteLine(message);
+
+            if (HasChangedGears)
+            {
+                HasChangedGears = false;
+            }
         }
     }
 }
